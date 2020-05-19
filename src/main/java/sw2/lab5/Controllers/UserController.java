@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import sw2.lab5.Entity.User;
 import sw2.lab5.Repository.PostRepository;
+import sw2.lab5.Repository.RoleRepository;
 import sw2.lab5.Repository.UserRepository;
 
 import java.util.Optional;
@@ -22,7 +23,6 @@ public class UserController {
 
     @Autowired
     RoleRepository roleRepository;
-
 
     @Autowired
     UserRepository userRepository;
@@ -40,7 +40,7 @@ public class UserController {
 
         if (optional.isPresent()) {
             model.addAttribute("user", optional.get());
-            model.addAttribute("listarol",roleRepository.find ());
+            model.addAttribute("listarol",roleRepository.findAll());
             return "listausuarios";
         } else {
             return "redirect:/users";
