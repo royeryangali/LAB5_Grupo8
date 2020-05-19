@@ -18,24 +18,30 @@
         <!-- Links -->
         <ul class="navbar-nav">
             <a class="navbar-brand" href="#">Blog Telecom</a>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 1</a>
+            <li sec:authorize="isAnonymous()" class="nav-item">
+                <a class="nav-link" href="#">Listar Post</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 2</a>
+            <li  sec:authorize="hasAuthority('admin')" class="nav-item">
+                <a class="nav-link" href="#">Listar Usuario</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link 3</a>
+            <li sec:authorize="hasAnyAuthority('admin','user')" class="nav-item">
+                <a class="nav-link" href="">Ver mi perfil</a>
+            </li>
+            <li sec:authorize="hasAnyAuthority('admin','user')" class="nav-item">
+                <a class="nav-link" href="#">Crear un Post</a>
             </li>
         </ul>
 
         <div class="d-inline-flex">
-            <div id="usuarioAnonimo">
-                <a class="btn btn-info">Iniciar Sesión</a>
+            <div sec:authorize="isAnonymous()" id="usuarioAnonimo">
+                <a th:href="@{/loginForm}" class="btn btn-info">Iniciar Sesión</a>
             </div>
-            <div id="usuarioAutenticado">
-                <span>Bienvenido ___</span>
-                <a class="btn btn-info">Cerrar Sesión</a>
+
+            <div sec:authorize="isAuthenticated()" id="usuarioAutenticado" >
+                <span th:text="|Bienvenido ${#authentication.name}|"></span>
+                <form th:action="@{/logout}" method="post">
+                    <input class="btn btn-link" type="submit" value="(Cerrar Sesión)"/>
+                </form>
             </div>
         </div>
     </nav>
