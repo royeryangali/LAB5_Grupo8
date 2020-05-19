@@ -29,7 +29,7 @@ public class UserController {
 
     @GetMapping(value = {"", "/", "listar"})
     public String listarUser(Model model) {
-        model.addAttribute("listauser", userRepository.);
+        model.addAttribute("listauser", userRepository.findAll());
         return "listapost";
     }
 
@@ -39,8 +39,8 @@ public class UserController {
         Optional<User> optional = userRepository.findById(id);
 
         if (optional.isPresent()) {
-            model.addAttribute("employee", optional.get());
-            model.addAttribute("listaJefes", getListaJefes());
+            model.addAttribute("user", optional.get());
+            model.addAttribute("listarol",roleRepository.find ());
             return "listausuarios";
         } else {
             return "redirect:/users";
