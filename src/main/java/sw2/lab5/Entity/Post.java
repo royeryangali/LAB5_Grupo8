@@ -14,9 +14,10 @@ public class Post {
     @Column(name = "id_post")
     private String idpost;
 
-    @Column(name = "author_id")
+    @ManyToOne
+    @JoinColumn(name = "author_id")
     @Size(max = 11,message = "Máximo 11 caracteres")
-    private int authorid;
+    private User authorid;
 
     @Size(max = 75,message = "Máximo 75 caracteres")
     private String title;

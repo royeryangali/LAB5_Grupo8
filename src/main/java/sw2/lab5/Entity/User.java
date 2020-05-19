@@ -40,7 +40,7 @@ public class User {
     @Size(max = 2,message = "Solo puede ser 0 o 1")
     private Boolean active;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "id_role")
     private Role role;
 
