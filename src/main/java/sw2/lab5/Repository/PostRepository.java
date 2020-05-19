@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository;
 import sw2.lab5.Entity.Post;
 
 @Repository
-public interface PostRepository extends JpaRepository<Post, Integer> {
+public interface PostRepository extends JpaRepository <Post,Integer> {
 }

@@ -27,4 +27,52 @@ public class Post {
     private Boolean published;
 
     private String content;
+
+    public String getIdpost() {
+        return idpost;
+    }
+
+    public void setIdpost(String idpost) {
+        this.idpost = idpost;
+    }
+
+    public User getAuthorid() {
+        return authorid;
+    }
+
+    public void setAuthorid(User authorid) {
+        this.authorid = authorid;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public Boolean getPublished() {
+        return published;
+    }
+
+    public void setPublished(Boolean published) {
+        this.published = published;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 }
