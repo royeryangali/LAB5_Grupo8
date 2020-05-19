@@ -19,13 +19,13 @@ import java.util.Optional;
 public class UserController {
 
     @Autowired
+    UserRepository userRepository;
+
+    @Autowired
     PostRepository postRepository;
 
     @Autowired
     RoleRepository roleRepository;
-
-    @Autowired
-    UserRepository userRepository;
 
     @GetMapping(value = {"", "/", "listar"})
     public String listarUser(Model model) {
@@ -40,16 +40,13 @@ public class UserController {
 
         if (optional.isPresent()) {
             model.addAttribute("user", optional.get());
-            model.addAttribute("listarol",roleRepository.findAll());
+            model.addAttribute("listarol", roleRepository.findAll());
             return "listausuarios";
         } else {
             return "redirect:/users";
         }
 
     }
-
-
-
 
 
 }
