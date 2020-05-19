@@ -7,24 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class LoginController {
-
     @GetMapping("/loginForm")
     public String loginForm(){
-        return "login/loginForm";
+        return "login/form";
     }
 
-    @GetMapping("/redirectByRol")
-    public String redirectByRol(Authentication auth){
+    @GetMapping(value = "/redirectByRole")
+    public String redirectByRole(Authentication auth) {
         String rol = "";
         for (GrantedAuthority role : auth.getAuthorities()) {
             rol = role.getAuthority();
             break;
         }
-        if (rol.equals("admin")) {
-            return "redirect:/shipper/";
+        if (rol.equals("admin") || rol.equals("user")) {
+            return "redirect:/posts/";
         } else {
-            return "redirect:/employee/";
+            return "redirect:/index/";
         }
-
     }
 }
