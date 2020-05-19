@@ -30,6 +30,7 @@ public class PostController {
     @GetMapping(value = {"", "/", "listar"})
     public String listarPost(Model model) {
                model.addAttribute("listapost", postRepository.findAll());
+               model.addAttribute("listaautores", postRepository.findAll());
         return "listapost";
     }
 

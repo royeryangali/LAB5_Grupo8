@@ -6,4 +6,5 @@ import sw2.lab5.Entity.Post;
 
 @Repository
 public interface PostRepository extends JpaRepository <Post,Integer> {
+
 }
