@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/redirectByRole", true);
 
         http.logout()
-                .logoutSuccessUrl("/");
+                .logoutSuccessUrl("/").deleteCookies("JSESSIONID").invalidateHttpSession(true);
 
         http.authorizeRequests()
                 //Protege ruta /employee y una debajo de ella. Sólo pueden verlo admin y logistica
