@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import sw2.lab5.Entity.Post;
 import sw2.lab5.Repository.PostRepository;
+import sw2.lab5.Repository.RoleRepository;
+import sw2.lab5.Repository.UserRepository;
 
 import java.util.Optional;
 
